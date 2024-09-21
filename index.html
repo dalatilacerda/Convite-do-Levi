@@ -52,9 +52,9 @@
         .button {
             position: absolute;
             background-color: transparent;
-            border: 2px solid #fff;
+            border: 2px;
             color: white;
-            padding: 30px 85px; /* Ajustado para ser responsivo */
+            padding: 30px 85px;
             text-align: center;
             text-decoration: none;
             font-size: 1.2rem;
@@ -62,23 +62,23 @@
         }
 
         .btn1 {
-            top: 50%; /* Ajuste conforme necessário */
-            left: 5%; /* Ajuste conforme necessário */
+            top: 57%;
+            left: 1%;
         }
 
         .btn2 {
-            top: 65%; /* Ajuste conforme necessário */
-            left: 5%; /* Ajuste conforme necessário */
+            top: 68.3%;
+            left: 1%;
         }
 
         .btn3 {
-            top: 65%; /* Ajuste conforme necessário */
-            left: 55%; /* Ajuste conforme necessário */
+            top: 68.3%;
+            left: 57%;
         }
 
         .btn4 {
-            top: 50%; /* Ajuste conforme necessário */
-            left: 55%; /* Ajuste conforme necessário */
+            top: 57%;
+            left: 57%;
         }
 
         .button:hover {
@@ -101,10 +101,9 @@
 
         .modal-content {
             background-color: white;
-            padding: 2rem;
+            padding: 20px;
             border-radius: 10px;
-            width: 90%; /* Responsivo */
-            max-width: 400px; /* Limita a largura máxima */
+            width: 300px;
             text-align: center;
         }
 
@@ -116,33 +115,10 @@
         }
 
         .imagem-circular img {
-            width: 100px; /* Define o tamanho da imagem */
+            width: 100px;
             height: 100px;
-            border-radius: 50%; /* Transforma a imagem em um círculo */
-            object-fit: cover; /* Garante que a imagem se ajuste ao círculo */
-        }
-
-        @media (max-width: 768px) {
-            .button {
-                padding: 1.5rem 3rem; /* Ajusta o padding em telas menores */
-                font-size: 1rem; /* Reduz o tamanho da fonte */
-            }
-
-            .modal-content {
-                padding: 1rem; /* Ajusta o padding do modal */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .button {
-                padding: 1rem 2rem; /* Ajusta o padding para dispositivos móveis */
-                font-size: 0.9rem; /* Reduz ainda mais o tamanho da fonte */
-            }
-
-            .imagem-circular img {
-                width: 80px; /* Tamanho da imagem em dispositivos móveis */
-                height: 80px;
-            }
+            border-radius: 50%;
+            object-fit: cover;
         }
     </style>
 </head>

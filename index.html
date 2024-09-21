@@ -10,11 +10,43 @@
             padding: 0;
             height: 100%;
             width: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Impede o scroll enquanto carrega */
+        }
+
+        /* Tela de carregamento */
+        #preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #preloader .loader {
+            border: 8px solid #f3f3f3; /* Cor de fundo do círculo */
+            border-top: 8px solid #3498db; /* Cor do círculo animado */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Corpo da página */
+        body {
             background-image: url('https://raw.githubusercontent.com/dalatilacerda/Convite-do-Levi/refs/heads/main/Parab%C3%A9ns_20240921_084821_0000.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            position: relative;
+            display: none; /* Escondemos o conteúdo até a imagem carregar */
         }
 
         .button {
@@ -30,39 +62,39 @@
         }
 
         .btn1 {
-            top: 57%; /* Ajuste conforme necessário */
-            left: 1%; /* Ajuste conforme necessário */
+            top: 57%;
+            left: 1%;
         }
 
         .btn2 {
-            top: 68.3%; /* Ajuste conforme necessário */
-            left: 1%; /* Ajuste conforme necessário */
+            top: 68.3%;
+            left: 1%;
         }
-        
+
         .btn3 {
-            top: 68.3%; /* Ajuste conforme necessário */
-            left: 57%; /* Ajuste conforme necessário */
+            top: 68.3%;
+            left: 57%;
         }
-        
+
         .btn4 {
-            top: 57%; /* Ajuste conforme necessário */
-            left: 57%; /* Ajuste conforme necessário */
+            top: 57%;
+            left: 57%;
         }
 
         .button:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Estilos para a janela flutuante (modal) */
+        /* Modais */
         .modal {
-            display: none; /* Oculto por padrão */
+            display: none;
             position: fixed;
             z-index: 1;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+            background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
         }
@@ -81,23 +113,28 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
+
         .imagem-circular img {
-    width: 100px; /* Define o tamanho da imagem */
-    height: 100px;
-    border-radius: 50%; /* Transforma a imagem em um círculo */
-    object-fit: cover; /* Garante que a imagem se ajuste ao círculo */
-}
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
+    <!-- Tela de carregamento -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
     <!-- Botões -->
     <a href="#" class="button btn1" onclick="openModal('modal1')"></a>
     <a href="#" class="button btn2" onclick="openModal('modal2')"></a>
     <a href="#" class="button btn3" onclick="openModal('modal3')"></a>
     <a href="#" class="button btn4" onclick="openModal('modal4')"></a>
     
-    <!-- Janelas flutuantes (modais) -->
+    <!-- Modais -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal1')">&times;</span>
@@ -109,9 +146,9 @@
     <div id="modal2" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal2')">&times;</span>
-           <p>Localização da festa.</p>
-           <p>Rua da alegria, N°10 - Anil</p>
-           <a href="https://maps.app.goo.gl/Ex4iVZntCdVRbR8ZA">Acessar localização</a>
+            <p>Localização da festa.</p>
+            <p>Rua da alegria, N°10 - Anil</p>
+            <a href="https://maps.app.goo.gl/Ex4iVZntCdVRbR8ZA">Acessar localização</a>
         </div>
     </div>
 
@@ -120,9 +157,9 @@
             <span class="close" onclick="closeModal('modal3')">&times;</span>
             <p>Sobre o Levi.</p>
             <div class="imagem-circular">
-        <img src="https://raw.githubusercontent.com/dalatilacerda/Convite-do-Levi/refs/heads/main/IMG-20240920-WA0109.jpg" alt="Imagem circular">
-    </div>
-    <p>Cheio de energia e sempre com um sorriso no rosto, Eu sou a definição de alegria em movimento. Curioso e brincalhão, adoro explorar o mundo ao meu redor, fazendo de cada dia uma nova aventura.</p>
+                <img src="https://raw.githubusercontent.com/dalatilacerda/Convite-do-Levi/refs/heads/main/IMG-20240920-WA0109.jpg" alt="Imagem circular">
+            </div>
+            <p>Cheio de energia e sempre com um sorriso no rosto, Eu sou a definição de alegria em movimento. Curioso e brincalhão, adoro explorar o mundo ao meu redor, fazendo de cada dia uma nova aventura.</p>
         </div>
     </div>
 
@@ -138,6 +175,12 @@
     </div>
 
     <script>
+        // Tela de carregamento
+        window.addEventListener('load', function() {
+            document.getElementById('preloader').style.display = 'none';
+            document.body.style.display = 'block'; // Mostra o corpo quando tudo estiver carregado
+        });
+
         // Função para abrir o modal
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "flex";

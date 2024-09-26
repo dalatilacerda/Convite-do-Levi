@@ -135,26 +135,12 @@
     </audio>
 
     <!-- Botões -->
-    <a href="#" class="button btn1" onclick="openModal('modal1')"></a>
+    <a href="#" class="button btn1" onclick="showJotForm()"></a>
     <a href="#" class="button btn2" onclick="openModal('modal2')"></a>
     <a href="#" class="button btn3" onclick="openModal('modal3')"></a>
     <a href="#" class="button btn4" onclick="openModal('modal4')"></a>
     
     <!-- Modais -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <strong><p>CONFIRME SUA PRESENÇA 💥</p></strong>
-            <div style="position: relative; width: 100%; overflow: hidden; padding-top: 56.25%;">
-    <iframe src="https://form.jotform.com/242654549445061" 
-            style="position: absolute; top: 0; left: 0; width: 600px; height: 320px; border: 0;" 
-            frameborder="0" marginheight="0" marginwidth="0">
-        Carregando…
-    </iframe>
-            </div>
-        </div>
-    </div>
-
     <div id="modal2" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal2')">&times;</span>
@@ -190,6 +176,9 @@
         </div>
     </div>
 
+    <script src ="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
+    <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+    
     <script>
         // Tela de carregamento
         window.addEventListener('load', function() {
@@ -213,6 +202,23 @@
         // Função para fechar o modal
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = "none";
+        }
+
+        // Função para exibir o formulário do JotForm ao clicar no botão 1
+        function showJotForm() {
+            var JFL_242692744784066 = new JotformFeedback({
+                formId: '242692744784066',
+                base: 'https://form.jotform.com/',
+                windowTitle: 'Confirmar presença',
+                backgroundColor: '#d0021b',
+                fontColor: '#FFFFFF',
+                type: 'false',
+                height: 700,
+                width: 700,
+                openOnLoad: true
+            });
+            
+            playMusic(); // Inicia a música ao abrir o formulário
         }
     </script>
 </body>
